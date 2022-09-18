@@ -1,0 +1,36 @@
+<nav class="container-fluid mx-0 px-0 position-fixed bg-white top-0 left-0 z-10 w-full border-bottom"
+     [ngClass]="{'shadow-sm': scrollOffset > 20}">
+  <div class="container py-3">
+    <div class="flex justify-content-between">
+
+      <div class="my-auto d-flex">
+        <div routerLink="/" class="my-auto fw-bold d-flex me-3 hover:cursor-pointer">
+          <i class="bi bi-egg-fried me-1 text-blue-500"></i>
+          <span>PAPA<span>LIN</span></span>
+        </div>
+      </div>
+      <div class="my-auto d-flex">
+        <div class="d-block d-md-none">
+          <button type="button" class="btn btn-light"><i class="bi bi-three-dots-vertical"></i></button>
+        </div>
+        <div class="d-none d-md-block flex justify-content-between">
+          <a [routerLink]="'/login'" class="navigation-item">Login</a>
+          <a [routerLink]="'/about-us'" class="navigation-item">Contact</a>
+        </div>
+      </div>
+
+
+
+<!--      <div class="my-auto">-->
+<!--        <div class="d-block d-md-none">-->
+<!--          <button type="button" class="btn btn-light"><i class="bi bi-three-dots-vertical"></i></button>-->
+<!--        </div>-->
+<!--        <div class="d-none d-md-block flex justify-content-between">-->
+<!--          <a [routerLink]="'/login'" class="navigation-item">Login</a>-->
+<!--          <a [routerLink]="'/about-us'" class="navigation-item">Contact</a>-->
+<!--        </div>-->
+<!--      </div>-->
+    </div>
+  </div>
+</nav>
+

@@ -1,6 +1,7 @@
 {
   "hosting": {
-    "public": "public",
+    "site": "papalin-b9b1f",
+    "public": "dist",
     "ignore": [
       "firebase.json",
       "**/.*",

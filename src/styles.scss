@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Battambang:wght@400;700&family=Inter:wght@400;500;600;700&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Inter', 'Battambang', Roboto, "Helvetica Neue", cursive, sans-serif;
+  background-color: #f3f3f4;
+}
+
+.form-control {
+  &:focus {
+    box-shadow: none !important;
+    border-color: inherit;
+  }
+}
+
+.mat-tab-group, .mat-tab-label, .mat-tab-link {
+  font-family: inherit !important;
+}
+.mat-tab-label {
+
+}

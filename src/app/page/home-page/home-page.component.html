@@ -1,0 +1,41 @@
+<app-navbar></app-navbar>
+<div class="my-5">
+  <div class="container py-3">
+    <div class="row">
+      <div class="col-12">
+        <div class="col-12 flex justify-content-center mt-3">
+          <div class="my-auto">
+            <div class="input-group mb-2">
+              <span class="input-group-text bg-white border-end-0 rounded-tl-lg rounded-bl-lg"><i
+                class="bi bi-search"></i></span>
+              <input type="text" class="form-control border-start-0 rounded-lg"
+                     aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+<!--              <span mat-ripple-->
+<!--                    class="input-group-text bg-white rounded-tr-lg rounded-br-lg border-start-0 hover:text-purple-800 hover:cursor-pointer"-->
+<!--                    id="inputGroup-sizing-default"><span class="material-icons">tune</span></span>-->
+            </div>
+          </div>
+        </div>
+        <mat-tab-group dynamicHeight class="min-h-fit">
+          <mat-tab label="All Products">
+            <div class="overflow-y-auto overflow-x-hidden" style="height: 70vh">
+              <div class="row g-2 my-3">
+                <div class="col-12 col-md-6 col-lg-3" *ngFor="let item of [1,2,3,4,5,6,7,8,9,10,11,12]">
+                  <app-product (onClickBuy)="onOpenProductDialog($event)"></app-product>
+                </div>
+              </div>
+            </div>
+          </mat-tab>
+          <mat-tab label="Services"> Content 2</mat-tab>
+          <mat-tab label="Accounts"> Content 3</mat-tab>
+          <mat-tab label="Ads Accounts"> Content 3</mat-tab>
+          <mat-tab label="Pages Traffic"> Content 3</mat-tab>
+          <mat-tab label="Pages Monetized"> Content 3</mat-tab>
+          <mat-tab label="Promo"> Content 3</mat-tab>
+        </mat-tab-group>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>
