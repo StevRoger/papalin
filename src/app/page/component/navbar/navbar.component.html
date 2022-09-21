@@ -10,26 +10,52 @@
         </div>
       </div>
       <div class="my-auto d-flex">
-        <div class="d-block d-md-none">
-          <button type="button" class="btn btn-light"><i class="bi bi-three-dots-vertical"></i></button>
+
+<!--        <div class="d-block d-md-none">-->
+<!--          <button type="button" class="btn btn-light"><i class="bi bi-list text-dark"></i></button>-->
+<!--        </div>-->
+
+        <div class="flex justify-content-between" *ngIf="!user">
+          <a (click)="onOpenLoginSheet()" class="navigation-item">Login</a>
+          <a [routerLink]="'/about-us'" class="navigation-item d-none d-md-block ">Contact</a>
         </div>
-        <div class="d-none d-md-block flex justify-content-between">
-          <a [routerLink]="'/login'" class="navigation-item">Login</a>
-          <a [routerLink]="'/about-us'" class="navigation-item">Contact</a>
-        </div>
+
+        <ng-container *ngIf="user && user !== undefined">
+          <div class="flex justify-content-between my-auto">
+            <div class="my-auto">{{user.balance | currency}}&nbsp;&#124;&nbsp;</div>
+            <img [src]="user ? user.photoUrl : 'https://via.placeholder.com/150'" referrerpolicy="no-referrer"
+                 alt="user_photo" class="me-1 my-auto" style="height: 24px; width: auto; border-radius: 50%">
+            <div class="fs-90 my-auto me-1">{{user.name}}</div>
+            <button mat-ripple type="button" [matMenuTriggerFor]="menu" class="btn btn-link btn-sm my-auto"><i
+              class="bi bi-chevron-down text-dark"></i></button>
+          </div>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+              <mat-icon>attach_money</mat-icon>
+              <span>Top Up</span>
+            </button>
+            <button mat-menu-item>
+              <mat-icon>question_mark</mat-icon>
+              <span>Contact Help Support</span>
+            </button>
+            <button mat-menu-item (click)="onSignOut()">
+              <mat-icon>logout</mat-icon>
+              <span>Logout</span>
+            </button>
+          </mat-menu>
+        </ng-container>
       </div>
 
 
-
-<!--      <div class="my-auto">-->
-<!--        <div class="d-block d-md-none">-->
-<!--          <button type="button" class="btn btn-light"><i class="bi bi-three-dots-vertical"></i></button>-->
-<!--        </div>-->
-<!--        <div class="d-none d-md-block flex justify-content-between">-->
-<!--          <a [routerLink]="'/login'" class="navigation-item">Login</a>-->
-<!--          <a [routerLink]="'/about-us'" class="navigation-item">Contact</a>-->
-<!--        </div>-->
-<!--      </div>-->
+      <!--      <div class="my-auto">-->
+      <!--        <div class="d-block d-md-none">-->
+      <!--          <button type="button" class="btn btn-light"><i class="bi bi-three-dots-vertical"></i></button>-->
+      <!--        </div>-->
+      <!--        <div class="d-none d-md-block flex justify-content-between">-->
+      <!--          <a [routerLink]="'/login'" class="navigation-item">Login</a>-->
+      <!--          <a [routerLink]="'/about-us'" class="navigation-item">Contact</a>-->
+      <!--        </div>-->
+      <!--      </div>-->
     </div>
   </div>
 </nav>

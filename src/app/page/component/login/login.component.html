@@ -1,0 +1,26 @@
+<div class="row p-3">
+  <div class="col-12 text-center">
+    <div class="fw-semibold fs-6">Choose your login option</div>
+  </div>
+</div>
+
+<mat-nav-list>
+  <a mat-list-item (click)="signInWithFB()">
+    <div class="flex">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg"
+           class="social-icon my-auto me-2"
+           alt="facebook_logo">
+      <div class="my-auto">Login with Facebook</div>
+    </div>
+  </a>
+
+  <a mat-list-item (click)="signInWithGoogle()">
+    <div class="flex">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"
+        class="social-icon my-auto me-2"
+        alt="facebook_logo">
+      <div class="my-auto">Login with Google</div>
+    </div>
+  </a>
+</mat-nav-list>

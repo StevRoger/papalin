@@ -17,6 +17,12 @@ export class FirestoreDbService {
     });
   }
 
+  getRecords(table_name: string) {
+    return new Promise<any>((resolve)=> {
+      this.db.collection(table_name).valueChanges({ idField: 'id' }).subscribe(records => resolve(records));
+    });
+  }
+
   // addNewUser(_newId:any, _fName:string, _lName:string, _vip:boolean) {
   //   this.db.collection(&quot;User&quot;).doc(_newId).set({firstName:_fName,lastName:_lName,vipMember:_vip});
   // }
