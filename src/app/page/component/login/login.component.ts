@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FacebookLoginProvider, GoogleLoginProvider, SocialAuthService} from "angularx-social-login";
 import {MatBottomSheet} from "@angular/material/bottom-sheet";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {FirestoreDbService} from "../../../shared/firestore-db.service";
 
 @Component({
   selector: 'app-login',
@@ -13,6 +14,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private _SocialAuthService: SocialAuthService,
     private _MatBottomSheet: MatBottomSheet,
+    private _FirestoreDbService: FirestoreDbService,
   ) { }
 
   ngOnInit(): void {
@@ -36,5 +38,14 @@ export class LoginComponent implements OnInit {
     }, (err) => {
       this._MatBottomSheet.dismiss({status: 'ERROR'});
     });
+  }
+
+  registerNewUser(): void {
+    const record: any = {
+      id: 'idtest',
+      name: 'Kaka',
+      email: 'test@gmail.com'
+    }
+    this._FirestoreDbService.addNewUser(record).then();
   }
 }

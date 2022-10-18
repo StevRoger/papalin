@@ -20,6 +20,7 @@ import {MatIconModule} from "@angular/material/icon";
 import {NgxSkeletonLoaderModule} from "ngx-skeleton-loader";
 import { LoadingProductComponent } from './component/loading-product/loading-product.component';
 import {MatSnackBarModule} from "@angular/material/snack-bar";
+import { AdminPageComponent } from './admin-page/admin-page.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     ProductComponent,
     ProductDialogComponent,
     LoginComponent,
-    LoadingProductComponent
+    LoadingProductComponent,
+    AdminPageComponent
   ],
   imports: [
     CommonModule,

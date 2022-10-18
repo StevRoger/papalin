@@ -13,6 +13,7 @@ export class HomePageComponent implements OnInit {
   products: any[] = [];
   categories: any[] = [];
   isLoadingProducts: boolean = true;
+  isLoadingCategories: boolean = true;
 
   constructor(
     public _MatDialog: MatDialog,
@@ -24,15 +25,17 @@ export class HomePageComponent implements OnInit {
     this.onLoadProducts().then();
   }
 
+  async onLoadCategories() {
+    this.categories = await this._FirestoreDbService.getRecords('categories');
+    this.categories.sort((a, b) => (a.ordering > b.ordering) ? 1 : -1);
+    console.log('categories', this.categories);
+    this.isLoadingCategories = false;
+  }
+
   async onLoadProducts() {
     this.products = await this._FirestoreDbService.getRecords('products');
     console.log('products', this.products);
     this.isLoadingProducts = false;
-  }
-
-  async onLoadCategories() {
-    this.categories = await this._FirestoreDbService.getRecords('categories');
-    console.log('categories', this.categories);
   }
 
   onOpenProductDialog(productId: string): void {

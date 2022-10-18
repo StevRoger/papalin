@@ -23,9 +23,17 @@ export class FirestoreDbService {
     });
   }
 
-  // addNewUser(_newId:any, _fName:string, _lName:string, _vip:boolean) {
-  //   this.db.collection(&quot;User&quot;).doc(_newId).set({firstName:_fName,lastName:_lName,vipMember:_vip});
-  // }
+  addNewUser(userRecord: any) {
+    const newDocId: string = `${1000 + Math.floor(Math.random() * 999)}`;
+    return new Promise<any>((resolve) => {
+      this.db.collection('users').doc(newDocId).set({
+        id: userRecord.id,
+        name: userRecord.name,
+        email: userRecord.email
+      }).then();
+    });
+  }
+
   //
   // updateUserFirstName(_id:any, _firstName:string) {
   //   this.db.doc(`User/${_id}`).update({firstName:_firstName});

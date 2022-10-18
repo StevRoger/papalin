@@ -13,10 +13,14 @@
             </div>
           </div>
         </div>
-        <mat-tab-group dynamicHeight class="min-h-fit">
-          <mat-tab label="All Products">
+        <div class="mt-2" *ngIf="isLoadingCategories">
+          <ngx-skeleton-loader count="1"
+                               [theme]="{'height.px': 50, 'border-radius.px': 8, 'background-color': '#e6e6e6'}"></ngx-skeleton-loader>
+        </div>
+        <mat-tab-group dynamicHeight class="min-h-fit" *ngIf="!isLoadingCategories">
+          <mat-tab label="All Product">
             <div class="overflow-y-auto overflow-x-hidden" style="height: 70vh">
-              <div class="row g-2 my-3">
+              <div class="row g-3 my-3">
                 <ng-container *ngIf="isLoadingProducts, else hasProduct">
                   <app-loading-product></app-loading-product>
                 </ng-container>
@@ -28,12 +32,20 @@
               </div>
             </div>
           </mat-tab>
-          <mat-tab label="Services"> Content 2</mat-tab>
-          <mat-tab label="Accounts"> Content 3</mat-tab>
-          <mat-tab label="Ads Accounts"> Content 3</mat-tab>
-          <mat-tab label="Pages Traffic"> Content 3</mat-tab>
-          <mat-tab label="Pages Monetized"> Content 3</mat-tab>
-          <mat-tab label="Promo"> Content 3</mat-tab>
+          <mat-tab [label]="category['label']" *ngFor="let category of categories ?? []">
+            <div class="overflow-y-auto overflow-x-hidden" style="height: 70vh">
+              <div class="row g-3 my-3">
+                <ng-container *ngIf="isLoadingProducts, else hasProduct">
+                  <app-loading-product></app-loading-product>
+                </ng-container>
+                <ng-template #hasProduct>
+                  <div class="col-12 col-md-6 col-lg-3" *ngFor="let item of [1,2,3,4,5,6,7,8,9,10,11,12]">
+                    <app-product (onClickBuy)="onOpenProductDialog($event)"></app-product>
+                  </div>
+                </ng-template>
+              </div>
+            </div>
+          </mat-tab>
         </mat-tab-group>
       </div>
     </div>
