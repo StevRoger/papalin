@@ -1,1 +1,103 @@
-<p>admin-page works!</p>
+<div class="container">
+
+  <div class="row">
+    <div class="col-12 my-5 d-flex justify-content-between">
+      <button type="button" routerLink="/" class="btn my-auto btn-link text-decoration-none text-dark text-sm fw-semibold"><i class="bi bi-arrow-left me-1"></i>Back</button>
+      <div class="my-auto">
+        <div class="input-group">
+          <span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
+          <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+      </div>
+    </div>
+    <div class="col-12">
+      <mat-tab-group mat-align-tabs="start">
+        <mat-tab label="Products" class="overflow-auto">
+          <table class="table bg-white">
+            <thead class="bg-gray-200">
+            <tr>
+              <th class="text-sm fw-semibold" scope="col">No.</th>
+              <th class="text-sm fw-semibold" scope="col">Name</th>
+              <th class="text-sm fw-semibold" scope="col">Price</th>
+              <th class="text-sm fw-semibold" scope="col">Sell Price</th>
+              <th class="text-sm fw-semibold" scope="col">Category</th>
+              <th class="text-sm fw-semibold" scope="col">Amount Remaining</th>
+              <th class="text-sm fw-semibold" scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let user of products, let i = index">
+              <th scope="row">{{i+1}}</th>
+              <td>{{user.name ?? ''}}</td>
+              <td>{{user.price ?? 0 | currency}}</td>
+              <td>{{user.sell_price ?? 0 | currency}}</td>
+              <td>{{'N/A'}}</td>
+              <td>{{user.amount ?? 0 | number}}</td>
+              <td style="width: 50px">
+                <div class="flex">
+                  <button type="button" class="btn btn-outline-secondary btn-sm me-1"><i class="bi bi-pencil"></i></button>
+                  <button type="button" class="btn btn-outline-danger btn-sm"><i class="bi bi-trash3"></i></button>
+                </div>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </mat-tab>
+        <mat-tab label="Categories">
+          <table class="table bg-white">
+            <thead class="bg-gray-200">
+            <tr>
+              <th class="text-sm fw-semibold" scope="col">No.</th>
+              <th class="text-sm fw-semibold" scope="col">Label</th>
+              <th class="text-sm fw-semibold" scope="col">Name</th>
+              <th class="text-sm fw-semibold" scope="col">Ordering</th>
+              <th class="text-sm fw-semibold" scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let category of categories, let i = index">
+              <th scope="row">{{i+1}}</th>
+              <td>{{category.label ?? ''}}</td>
+              <td>{{category.name ?? ''}}</td>
+              <td>{{category.ordering ?? ''}}</td>
+              <td style="width: 50px">
+                <div class="flex">
+                  <button type="button" class="btn btn-outline-secondary btn-sm me-1"><i class="bi bi-pencil"></i></button>
+                  <button type="button" class="btn btn-outline-danger btn-sm"><i class="bi bi-trash3"></i></button>
+                </div>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </mat-tab>
+        <mat-tab label="Users">
+          <table class="table bg-white">
+            <thead class="bg-gray-200">
+            <tr>
+              <th class="text-sm fw-semibold" scope="col">No.</th>
+              <th class="text-sm fw-semibold" scope="col">Name</th>
+              <th class="text-sm fw-semibold" scope="col">Email</th>
+              <th class="text-sm fw-semibold" scope="col">Balance</th>
+              <th class="text-sm fw-semibold" scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let user of users, let i = index">
+              <th scope="row">{{i+1}}</th>
+              <td>{{user.name ?? ''}}</td>
+              <td>{{user.email ?? ''}}</td>
+              <td>{{user.balance ?? 0 | currency}}</td>
+              <td style="width: 50px">
+                <div class="flex">
+                  <button type="button" class="btn btn-outline-secondary btn-sm me-1"><i class="bi bi-pencil"></i></button>
+                  <button type="button" class="btn btn-outline-danger btn-sm"><i class="bi bi-trash3"></i></button>
+                </div>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+</div>

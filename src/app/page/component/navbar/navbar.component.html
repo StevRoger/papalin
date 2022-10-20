@@ -18,7 +18,22 @@
 
         <div class="flex justify-content-between" *ngIf="!user">
           <a (click)="onOpenLoginSheet()" class="navigation-item">Login</a>
-          <a [routerLink]="'/about-us'" class="navigation-item d-none d-md-block ">Contact</a>
+          <a href="javascript:void(0)" class="navigation-item d-none d-md-block" [matMenuTriggerFor]="menu">Contact</a>
+
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item disabled>
+              <mat-icon>chat</mat-icon>
+              <span>Facebook Chat</span>
+            </button>
+            <button mat-menu-item>
+              <mat-icon>send</mat-icon>
+              <span>Telegram</span>
+            </button>
+            <button mat-menu-item disabled>
+              <mat-icon>camera_enhance</mat-icon>
+              <span>Instagram</span>
+            </button>
+          </mat-menu>
         </div>
 
         <ng-container *ngIf="user && user !== undefined">
